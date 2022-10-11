@@ -119,7 +119,7 @@ export const ReactRegionalDataDisplay: FunctionComponent<RegionalDataDisplayProp
             <>
                 <h1>{selectedDataSet.name} - {moment(selectedDate).format(selectedDataSet.dates.format)}</h1>
                 <p>{selectedDataSet.description}</p>
-                <p>Source: <a href={selectedDataSet.source.url}>{selectedDataSet.source.name}</a></p>
+                <p>Source: <a target={"_blank"} href={selectedDataSet.source.url}>{selectedDataSet.source.name}</a></p>
             </>
         )
     }
