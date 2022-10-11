@@ -1,0 +1,7 @@
+src
+.parcelrc
+.babelrc
+node_modules
+.parcel-cache
+dev
+.git

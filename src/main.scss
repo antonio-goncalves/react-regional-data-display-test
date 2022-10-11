@@ -1,0 +1,5 @@
+@use '~mapbox-gl/dist/mapbox-gl.css';
+@use '~rc-slider/assets/index.css';
+@use 'RegionsMap/index.css' as regions-map-styling;
+@use 'Slider/index.scss' as regions-data-display-slider-styling;
+@use 'ReactRegionalDataDisplay/index.css' as regions-data-display;

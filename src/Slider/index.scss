@@ -1,0 +1,105 @@
+.regional-data-display-slider-container {
+    display:flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.regional-data-display-slider-container-button {
+    margin-right: 10px;
+}
+
+//https://codepen.io/stevenfabre/pen/KKPJyW
+
+$background:#f9f9f9;
+$foreground:#2c3e50;
+
+$foreground-light:#34495e;
+
+$size: 8px;
+$ratio:1.2;
+
+$transition-time:0.3s;
+
+.regional-data-display-slider {
+    flex: 1 0;
+    min-width: 0px;
+    padding-left:20px;
+    padding-right:20px;
+    height:30px;
+}
+
+.regional-data-display-slider-button-container {
+    width:24px;
+    height:24px;
+}
+
+.regional-data-display-slider-button {
+    transform: translate(7px, 4px);
+    display:block;
+    width: 0;
+    height: 0;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: ($size*$ratio) solid $foreground;
+
+    position:relative;
+    z-index:1;
+    transition: all $transition-time;
+    -webkit-transition: all $transition-time;
+    -moz-transition: all $transition-time;
+    left:($size*0.2);
+
+    &:before {
+        box-sizing: content-box;
+        content:'';
+        position:absolute;
+        top:($size*-1.5);
+        left:($size*-2.3);
+        bottom:($size*-1.5);
+        right:($size*-0.7);
+        border-radius:50%;
+        border: ($size*0.2) solid $foreground;
+        z-index:2;
+        transition: all $transition-time;
+        -webkit-transition: all $transition-time;
+        -moz-transition: all $transition-time;
+    }
+    &:after {
+        box-sizing: content-box;
+        content:'';
+        opacity:0;
+        transition: opacity ($transition-time * 2);
+        -webkit-transition: opacity ($transition-time * 2);
+        -moz-transition: opacity ($transition-time * 2);
+    }
+
+    &:hover, &:focus {
+        &:before {
+            box-sizing: content-box;
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+        }
+    }
+
+    &.active {
+        border-color:transparent;
+        &:after {
+            box-sizing: content-box;
+            content:'';
+            opacity:1;
+            width:($size);
+            height:($size*1.6);
+            background:$foreground;
+            position:absolute;
+            right: ($size*0.1);
+            top: ($size*-0.8);
+            border-left:($size*0.4) solid $foreground;
+            box-shadow:inset ($size*0.6) 0 0 0 $background;
+        }
+    }
+}
+
+
