@@ -18,25 +18,25 @@ Main component providing the map visualizer, data set and date selection.
 
 ### Properties
 
-| Name                  | Type             | Is Optional | Default Value | Description                                                                                                    |
-|-----------------------|------------------|-------------|---------------|----------------------------------------------------------------------------------------------------------------|
-| dataSets              | DataSet[]        | no          |               | Data sets containing values for each region.                                                                   | 
-| regions               | Region[]         | no          |               | GeoJSON data of regions that should be included on the map                                                     |
-| center                | Center           | yes         |    {zoom:1,lng:0,lat:0}           | Map position and zoom                                                                                          |
-| mapBoxToken           | string           | no          | | Access token required to use mapbox                                                                            |
-| mapHeight             | string or number | yes         | 500 | Height of the map                                                                                              |
-| mapBoxOptions         | object           | yes         | | Extra [options](https://docs.mapbox.com/mapbox-gl-js/api/map/#map-parameters) passed to the mapbox constructor |
-| onDataSetChange | (dataSetId:string)=>void| yes         | | Fired when a new data set is selected                                                                          |
-| className             | string           | yes         | | Custom class for the container                                                                                 |
-| sliderClassName       | string           | yes         | | Custom class for the slider element                                                                            |
-| dropdownClassName     | string           | yes         | | Custom class for the dropdown element                                                                          |
-| placeholderClassName  | string           | yes         | | Custom class for the placeholder text                                                                          |
-| mapContainerClassName | string           | yes         | | Custom class for map container                                                                                 |
-| style                 | object           | yes         | | Custom style for the container                                                                                 |
-| sliderStyle           | object           | yes         | | Custom style for the slider element                                                                            |
-| dropdownStyle         | object           | yes         | | Custom style for the dropdown element                                                                          |
-| placeholderStyle      | object           | yes         | | Custom style for the placeholder text                                                                          |
-| mapContainerStyle     | object           | yes         | | Custom style for map container                                                                                 |
+| Name                  | Type             | Is Optional | Default Value             | Description                                                                                                    |
+|-----------------------|------------------|-------------|---------------------------|----------------------------------------------------------------------------------------------------------------|
+| dataSets              | DataSet[]        | no          |                           | Data sets containing values for each region.                                                                   | 
+| regions               | Region[]         | no          |                           | GeoJSON data of regions that should be included on the map                                                     |
+| center                | Center           | yes         | {<br/>&nbsp;&nbsp;&nbsp;zoom:1,<br/>&nbsp;&nbsp;&nbsp;&nbsp;lng:0,<br/>&nbsp;&nbsp;&nbsp;&nbsp;lat:0<br/>} | Map position and zoom                                                                                          |
+| mapBoxToken           | string           | no          |                           | Access token required to use mapbox                                                                            |
+| mapHeight             | string or number | yes         | 500                       | Height of the map                                                                                              |
+| mapBoxOptions         | object           | yes         |                           | Extra [options](https://docs.mapbox.com/mapbox-gl-js/api/map/#map-parameters) passed to the mapbox constructor |
+| onDataSetChange | (dataSetId:string)=>void| yes         |                           | Fired when a new data set is selected                                                                          |
+| className             | string           | yes         |                           | Custom class for the container                                                                                 |
+| sliderClassName       | string           | yes         |                           | Custom class for the slider element                                                                            |
+| dropdownClassName     | string           | yes         |                           | Custom class for the dropdown element                                                                          |
+| placeholderClassName  | string           | yes         |                           | Custom class for the placeholder text                                                                          |
+| mapContainerClassName | string           | yes         |                           | Custom class for map container                                                                                 |
+| style                 | object           | yes         |                           | Custom style for the container                                                                                 |
+| sliderStyle           | object           | yes         |                           | Custom style for the slider element                                                                            |
+| dropdownStyle         | object           | yes         |                           | Custom style for the dropdown element                                                                          |
+| placeholderStyle      | object           | yes         |                           | Custom style for the placeholder text                                                                          |
+| mapContainerStyle     | object           | yes         |                           | Custom style for map container                                                                                 |
 
 ## RegionsMap
 
@@ -48,7 +48,7 @@ Map component used on this project
 |----------------|----------------------|--------|---------------|----------------------------------------------------------------------------------------------------------------|
 | regionsData    | RegionData[] or null | no          |               | Data value for each region                                                                                     | 
 | regions        | Region[]             | no     |               | GeoJSON data of regions that should be included on the map                                                     |
-| center         | Center               | yes    |    {zoom:1,lng:0,lat:0}           | Map position and zoom                                                                                          |
+| center                | Center           | yes         | {<br/>&nbsp;&nbsp;&nbsp;zoom:1,<br/>&nbsp;&nbsp;&nbsp;&nbsp;lng:0,<br/>&nbsp;&nbsp;&nbsp;&nbsp;lat:0<br/>} | Map position and zoom                                                                                          |
 | mapBoxToken    | string               | no     | | Access token required to use mapbox                                                                            |
 | mapHeight      | string or number     | yes    | 500 | Height of the map                                                                                              |
 | mapBoxOptions  | object               | yes    | | Extra [options](https://docs.mapbox.com/mapbox-gl-js/api/map/#map-parameters) passed to the mapbox constructor |
@@ -94,18 +94,18 @@ Data structures used on this project
 
 Object describing a data set
 
-| Name        | Type          | Is Optional | Default Value        | Description                                                           |
-|-------------|---------------|-------------|----------------------|-----------------------------------------------------------------------|
-| id          | string        | no          |                      | Id of the data set                                                    |
-| name        | string        | no          |                      | Name of the data set                                                  |
-| description | string        | no          |                      | Description of the data set                                           |
-| center      | Center        | yes         | {lng:0,lat:0,zoom:1} | Position and zoom of the map (overrides "center" property of the map) |
-| source      | DataSetSource | no          |                  | Source of the data                                                    |
-| dates       | DataSetDates  | no          |                      | Dates of the data set                                                 |
-| unit        | Unit          | no          |                      | Unit of the data set                                                  |
-| scale       | DataScale     | no          |                      | Scale info for the data set                                           |
+| Name        | Type          | Is Optional | Default Value | Description                                                           |
+|-------------|---------------|-------------|---------------|-----------------------------------------------------------------------|
+| id          | string        | no          |               | Id of the data set                                                    |
+| name        | string        | no          |               | Name of the data set                                                  |
+| description | string        | no          |               | Description of the data set                                           |
+| center      | Center        | no          |               | Position and zoom of the map (overrides "center" property of the map) |
+| source      | DataSetSource | no          |               | Source of the data                                                    |
+| dates       | DataSetDates  | no          |               | Dates of the data set                                                 |
+| unit        | Unit          | no          |               | Unit of the data set                                                  |
+| scale       | DataScale     | no          |               | Scale info for the data set                                           |
 | data        | RegionData[] or null | no          |               | Data value for each region                                                                                     | 
-| footnotes         | Footnote[]           | yes    | | Footnotes texts used by data points                                                                            |
+| footnotes         | Footnote[]           | yes         |               | Footnotes texts used by data points                                                                            |
 
 ## Center
 
