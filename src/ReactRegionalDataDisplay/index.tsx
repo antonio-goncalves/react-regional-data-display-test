@@ -10,7 +10,6 @@ import {SliderValue} from "~/Slider/index.types";
 import {RegionsMap} from "../RegionsMap";
 import classnames from "classnames";
 
-
 export const ReactRegionalDataDisplay: FunctionComponent<RegionalDataDisplayProps> = (props ) => {
     const {
         dataSets,
