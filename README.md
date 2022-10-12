@@ -73,13 +73,13 @@ Main component providing the map visualizer, data info, data set and date select
 
 ### Properties
 
-| Name                  | Type             | Is Optional | Default Value             | Description                                                                                                    |
-|-----------------------|------------------|-------------|---------------------------|----------------------------------------------------------------------------------------------------------------|
-| dataSets              | DataSet[]        | no          |                           | Data sets available on the component.                                                                   | 
-| regions               | Region[]         | no          |                           | GeoJSON data of regions available on the map.                                                   |
+| Name                  | Type             | Is Optional | Default Value             | Description                                                                                                     |
+|-----------------------|------------------|-------------|---------------------------|-----------------------------------------------------------------------------------------------------------------|
+| dataSets              | DataSet[]        | no          |                           | Data sets available on the component.                                                                           | 
+| regions               | Region[]         | no          |                           | GeoJSON data of regions available on the map.                                                    |
 | center                | Center           | yes         | {<br/>&nbsp;&nbsp;&nbsp;zoom:1,<br/>&nbsp;&nbsp;&nbsp;&nbsp;lng:0,<br/>&nbsp;&nbsp;&nbsp;&nbsp;lat:0<br/>} | Center position and zoom.                                                                                       |
-| mapBoxToken           | string           | no          |                           | Access token required to use mapbox.                                                                       |
-| mapHeight             | string or number | yes         | 500                       | Height of the map, use a number of "px" or a sring for a css value.                                                                                              |
+| mapBoxToken           | string           | no          |                           | Access token required to use mapbox.                                                                            |
+| mapHeight             | string or number | yes         | 500                       | Height of the map, use a number of "px" or a sring for a css value.                                             |
 | mapBoxOptions         | object           | yes         |                           | Extra [options](https://docs.mapbox.com/mapbox-gl-js/api/map/#map-parameters) passed to the mapbox constructor. |
 | onDataSetChange | (dataSetId:string)=>void| yes         |                           | Fired when a new data set is selected.                                                                          |
 | className             | string           | yes         |                           | Custom class for the container.                                                                                 |
@@ -237,11 +237,11 @@ Object describing footnotes available
 
 Object containing the contours of a region
 
-| Name    | Type    | Is Optional | Default Value        | Description            |
-|---------|---------|-------------|----------------------|------------------------|
-| id      | string  | no          |                      | Id of the region.      |
-| name    | string  | no          |                      | name of the region.     |
-| geoJSON | GeoJSON | no          |                      | Contours of the region. |
+| Name    | Type    | Is Optional | Default Value        | Description                                       |
+|---------|---------|-------------|----------------------|---------------------------------------------------|
+| id      | string  | no          |                      | Id of the region.                                 |
+| name    | string  | no          |                      | name of the region.                               |
+| geoJSON | GeoJSON | no          |                      | Contours of the region, GeoJSON (type="Feature"). |
 
 
 ## SliderValue

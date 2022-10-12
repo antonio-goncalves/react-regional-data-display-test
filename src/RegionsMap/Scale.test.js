@@ -26,7 +26,7 @@ test('Check if the unit name is rendered',async ()=>{
 })
 
 test('Check if scales values are rendered',async ()=>{
-    const unitName = "Euros"
+
     render(<Scale
         {...scaleProps}
     />)

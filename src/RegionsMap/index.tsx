@@ -6,7 +6,7 @@ import mapboxgl from 'mapbox-gl';
 import {Scale} from "./Scale";
 import {DataScale, Region, RegionData} from "../ReactRegionalDataDisplay/index.types";
 import lodash from 'lodash'
-import {Feature, FeatureCollection, GeoJsonProperties, Geometry} from "geojson";
+import {Feature, FeatureCollection, GeoJSON, GeoJsonProperties, Geometry} from "geojson";
 
 import {ScaleInterval} from "~/RegionsMap/Scale.types";
 
@@ -229,11 +229,13 @@ export  class RegionsMap extends React.Component<RegionsMapProps,RegionMapState>
     }
 
     getFeatureFromRegion(region: Region):Feature {
-        const geoJSON: Feature = region.geoJSON;
+        const geoJSON: GeoJSON = region.geoJSON;
+
         this.idInc = this.idInc + 1;
         this.idHashMap[region.id] = this.idInc;
         this.geoJSONIdHashMap[this.idInc] = region.id;
         const regionData:RegionData | undefined = this.props.regionsData?.find(el=>el.id === region.id)
+
         return {
             type:geoJSON.type,
             id:this.idInc,
@@ -245,6 +247,8 @@ export  class RegionsMap extends React.Component<RegionsMapProps,RegionMapState>
                 __region__footnote__ids:regionData?.footnoteIds?.join(", ")
             }
         }
+
+
     }
 
     getSourceData():  FeatureCollection<Geometry, GeoJsonProperties> {
@@ -253,7 +257,7 @@ export  class RegionsMap extends React.Component<RegionsMapProps,RegionMapState>
         this.geoJSONIdHashMap = {}
         return {
             type:"FeatureCollection",
-            features:this.props.regions.map(this.getFeatureFromRegion)
+            features:this.props.regions.map(region=>(this.getFeatureFromRegion(region)))
         }
     }
 
