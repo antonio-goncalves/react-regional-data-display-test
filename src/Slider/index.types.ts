@@ -9,7 +9,7 @@ interface SliderProps {
     value:number,
     values: Array<SliderValue>,
     timeBetweenJumps?:number,
-    onChange: (value: number)=>void,
+    onChange?: (value: number)=>void,
     className?: string,
     style?: React.CSSProperties
 }

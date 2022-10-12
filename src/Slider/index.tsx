@@ -72,7 +72,7 @@ export class Slider extends React.Component<SliderProps, SliderState>{
            this.setState({
                value
            },()=>{
-               this.props.onChange(value);
+               this.props.onChange?.(value);
            })
 
        }

@@ -38,7 +38,7 @@ export  const Scale: FunctionComponent<ScaleProps>= ({value,unit,onMouseOver})=>
 
         return (
 
-            <span className={"regional-data-display-scale-square"} onMouseLeave={()=>{onMouseOver()}} onMouseEnter={()=>{onMouseOver(scaleInterval)}} key={scaleInterval.color} style={{backgroundColor:scaleInterval.color }}>
+            <span className={"regional-data-display-scale-square"} onMouseLeave={()=>{onMouseOver?.()}} onMouseEnter={()=>{onMouseOver?.(scaleInterval)}} key={scaleInterval.color} style={{backgroundColor:scaleInterval.color }}>
                 <span className={"regional-data-display-scale-mark"}/>
                 {lastValue?<span className={"regional-data-display-scale-mark"}/>:""}
             </span>

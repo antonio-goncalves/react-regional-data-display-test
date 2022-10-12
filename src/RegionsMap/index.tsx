@@ -32,8 +32,6 @@ export  class RegionsMap extends React.Component<RegionsMapProps,RegionMapState>
     constructor(props: RegionsMapProps | Readonly<RegionsMapProps>) {
         super(props);
         this.map = null;
-        ///@ts-ignore
-        window.map = this;
         this.getFeatureFromRegion = this.getFeatureFromRegion.bind(this);
         this.onScaleIntervalOver = this.onScaleIntervalOver.bind(this);
 
@@ -51,15 +49,21 @@ export  class RegionsMap extends React.Component<RegionsMapProps,RegionMapState>
         this.geoJSONIdHashMap = {}
     }
 
+    checkProps(){
+        const {mapBoxToken,regionsData,regions,scale,unit} = this.props;
+        return !!mapBoxToken && !! regionsData && !!regions && !!scale && !!unit
+
+
+    }
+
     componentWillUnmount() {
         this.map?.remove()
         this.map = null;
     }
 
     componentDidMount() {
-        if(this.ref.current === null){
-            return;
-        }
+        if(!this.checkProps()) return;
+        if(this.ref.current === null) return;
 
         const { lng, lat, zoom } = this.state;
         this.popup = new mapboxgl.Popup({
@@ -145,7 +149,7 @@ export  class RegionsMap extends React.Component<RegionsMapProps,RegionMapState>
 
 
     componentDidUpdate(prevProps: Readonly<RegionsMapProps>, prevState: Readonly<RegionMapState>, snapshot?: any) {
-
+        if(!this.checkProps()) return;
         if(prevProps.center !== this.props.center){
 
             this.setState(this.props.center,()=>{
@@ -194,11 +198,12 @@ export  class RegionsMap extends React.Component<RegionsMapProps,RegionMapState>
             }
 
         }else{
-            this.popup.remove();
+           this.popup.remove();
         }
     }
 
     shouldComponentUpdate(nextProps: Readonly<RegionsMapProps>, nextState: Readonly<RegionMapState>, nextContext: any): boolean {
+        if(!this.checkProps()) return false;
         if(this.state.hoveredRegionIds !== nextState.hoveredRegionIds){
             this.setMapHover(false);
         }
@@ -362,6 +367,7 @@ export  class RegionsMap extends React.Component<RegionsMapProps,RegionMapState>
 
 
     render() {
+        if(!this.checkProps()) return null;
         return (
             <div>
                 <div className={this.props.mapContainerClassName} style={{height: this.props.mapHeight,...this.props.mapContainerStyle}} ref={this.ref as React.RefObject<HTMLDivElement>}/>
