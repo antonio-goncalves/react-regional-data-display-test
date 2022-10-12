@@ -1,6 +1,6 @@
 # React Regional Data Display
 
-React component based on [mapbox](https://www.mapbox.com/) used to display quantitative data of geographical regions with support for multiples data sets and dates.
+React components based on [mapbox](https://www.mapbox.com/) used to display quantitative data of geographical regions with support for multiples data sets and dates.
 
 # Install
 
